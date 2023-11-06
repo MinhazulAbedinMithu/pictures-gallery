@@ -1,0 +1,116 @@
+.wrapper {
+  max-width: 850px;
+  width: 100%;
+  margin: 30px auto;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background: #fff;
+  border-radius: 8px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(204, 204, 204);
+  padding: 20px 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  padding: 15px;
+}
+
+.image-card,
+.add-image-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 8px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  cursor: pointer;
+}
+
+.image-card:hover::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background-color: rgba(63, 63, 63, 0.6);
+}
+
+.image-card .checkbox,
+.first-item .checkbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 99;
+  transform: scale(1.5);
+}
+
+.image-card img,
+.first-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.image-card:hover img,
+.first-item:hover img {
+  transform: scale(1.05);
+}
+
+.image-card.selected::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  background-color: rgba(255, 255, 255, 0.515);
+  border: 1px solid #888787;
+}
+
+.featured {
+  border: 2px;
+}
+
+.add-image-card label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: rgb(58, 58, 58);
+}
+.add-image-card img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+.add-image-card input {
+  max-width: 100px;
+  width: 100%;
+}
+
+.image-card.dragging {
+  border: 2px dashed #007bff;
+}
+
+/* Responsive  */
+@media only screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
