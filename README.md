@@ -1,3 +1,3 @@
 # Image Gallery
 
-Live Link: `image-gallery`
+Live Link: `https://galleryimages.vercel.app/`
