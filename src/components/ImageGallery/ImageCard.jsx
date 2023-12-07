@@ -8,13 +8,21 @@ const ImageCard = ({ image, onSelect }) => {
   };
   return (
     <>
-      <input
-        type="checkbox"
-        checked={isSelected ? true : false}
-        onChange={handleCheckboxChange}
-        className="checkbox"
-      />
-      <img src={url} alt={id} />
+      {url ? (
+        <>
+          <input
+            type="checkbox"
+            checked={isSelected ? true : false}
+            onChange={handleCheckboxChange}
+            className="checkbox"
+          />
+          <img src={url} alt={id} />
+        </>
+      ) : (
+        <div>
+          <h4>Loading</h4>
+        </div>
+      )}
     </>
   );
 };
